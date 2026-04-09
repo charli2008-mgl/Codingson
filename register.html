@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: "Inter", sans-serif;
+      }
+
+      body {
+        background-color: #f0f4f8;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .main-container {
+        display: flex;
+        width: 1100px;
+        height: 650px;
+        background: white;
+        border-radius: 24px;
+        overflow: hidden;
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12);
+        border: 1px solid rgba(0, 0, 0, 0.08);
+      }
+
+      .side-panel {
+        flex: 0.7;
+        background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        padding: 30px;
+        position: relative;
+      }
+
+      .side-panel.right {
+        background: linear-gradient(225deg, #4a90e2 0%, #357abd 100%);
+      }
+
+      .form-side {
+        flex: 1.5;
+        padding: 40px 60px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        background: white;
+        z-index: 2;
+      }
+
+      h2 {
+        font-size: 28px;
+        color: #1a202c;
+        margin-bottom: 8px;
+        font-weight: 800;
+        text-align: center;
+      }
+      .subtitle {
+        font-size: 14px;
+        color: #718096;
+        margin-bottom: 30px;
+        text-align: center;
+      }
+
+      .input-group {
+        margin-bottom: 18px;
+      }
+      .input-group label {
+        display: block;
+        font-size: 11px;
+        font-weight: 700;
+        color: #4a5568;
+        margin-bottom: 8px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      .input-wrapper {
+        position: relative;
+        display: flex;
+        align-items: center;
+      }
+      .input-wrapper i {
+        position: absolute;
+        left: 18px;
+        color: #a0aec0;
+        font-size: 16px;
+      }
+      .input-wrapper input {
+        width: 100%;
+        padding: 14px 14px 14px 50px;
+        border: 2px solid #edf2f7;
+        border-radius: 12px;
+        font-size: 15px;
+        outline: none;
+        background: #f8fafc;
+        transition: 0.3s;
+      }
+      .input-wrapper input:focus {
+        border-color: #4a90e2;
+        background: #fff;
+        box-shadow: 0 0 0 4px rgba(74, 144, 226, 0.1);
+      }
+
+      .register-btn {
+        width: 100%;
+        padding: 16px;
+        background: #4a90e2;
+        color: white;
+        border: none;
+        border-radius: 12px;
+        font-size: 16px;
+        font-weight: 700;
+        cursor: pointer;
+        transition: 0.3s;
+        margin-top: 10px;
+      }
+      .register-btn:hover {
+        background: #357abd;
+        transform: translateY(-1px);
+        box-shadow: 0 10px 20px rgba(74, 144, 226, 0.2);
+      }
+
+      .footer-text {
+        margin-top: 25px;
+        text-align: center;
+        font-size: 14px;
+        color: #718096;
+      }
+      .footer-text a {
+        color: #4a90e2;
+        font-weight: 700;
+        text-decoration: none;
+      }
+
+      .side-panel i.bg-icon {
+        font-size: 80px;
+        opacity: 0.2;
+        margin-bottom: 20px;
+      }
+
+      @media (max-width: 1000px) {
+        .main-container {
+          width: 95%;
+          height: auto;
+          flex-direction: column;
+        }
+        .side-panel {
+          display: none;
+          .form-side {
+            padding: 40px 30px;
+          }
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main-container">
+      <div class="side-panel"></div>
+
+      <div class="form-side">
+        <h2>Create Account</h2>
+        <p class="subtitle">Join our community of professionals.</p>
+
+        <form onsubmit="event.preventDefault()">
+          <div class="input-group">
+            <label>Full Name</label>
+            <div class="input-wrapper">
+              <i class="fa-regular fa-user"></i>
+              <input type="text" placeholder="Name" required />
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label>Email Address</label>
+            <div class="input-wrapper">
+              <i class="fa-regular fa-envelope"></i>
+              <input type="email" placeholder="Register@gmail.com" required />
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label>Password</label>
+            <div class="input-wrapper">
+              <i class="fa-solid fa-lock"></i>
+              <input type="password" placeholder="••••••••" required />
+            </div>
+          </div>
+
+          <button type="submit" class="register-btn">Register</button>
+        </form>
+
+        <p class="footer-text">
+          Already have an account? <a href="login.html">Sign In</a>
+        </p>
+      </div>
+
+      <div class="side-panel right"></div>
+    </div>
+  </body>
+</html>

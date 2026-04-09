@@ -1,0 +1,182 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background: #0f172a;
+  color: #fff;
+}
+
+/* HEADER */
+header {
+  background: #1e293b;
+  padding: 20px;
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* MAIN LAYOUT */
+.container {
+  display: flex;
+  height: calc(100vh - 80px);
+}
+
+/* SIDEBAR */
+.sidebar {
+  width: 250px;
+  background: #020617;
+  padding: 20px;
+  border-right: 2px solid #1e293b;
+}
+
+.sidebar h3 {
+  margin: 15px 0 10px;
+  color: #38bdf8;
+}
+
+.sidebar ul {
+  list-style: none;
+}
+
+.sidebar li {
+  padding: 8px;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: 0.2s;
+}
+
+.sidebar li:hover {
+  background: #1e293b;
+}
+
+/* MAIN CONTENT WRAPPER */
+.main {
+  flex: 1;
+  padding: 30px 40px;
+  overflow-y: auto; /* Adds a scrollbar if the lesson content is long */
+  scroll-behavior: smooth;
+}
+
+/* LESSON CONTAINER */
+.lesson {
+  display: none;
+  background: #1e293b; /* Slightly lighter than the background for contrast */
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow:
+    0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  border: 1px solid #334155;
+}
+
+/* Add a smooth fade-in animation when switching tabs */
+.lesson.active {
+  display: block;
+  animation: fadeIn 0.4s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* TYPOGRAPHY INSIDE LESSONS */
+.lesson h2 {
+  color: #38bdf8; /* Blue accent color */
+  font-size: 28px;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #334155; /* Underline to separate title */
+}
+
+.lesson h3 {
+  color: #f8fafc;
+  font-size: 20px;
+  margin-top: 30px;
+  margin-bottom: 15px;
+}
+
+.lesson p {
+  color: #cbd5e1;
+  line-height: 1.7; /* Better readability */
+  margin-bottom: 15px;
+  font-size: 16px;
+}
+
+/* LIST STYLING */
+.lesson ul {
+  margin-left: 20px;
+  margin-bottom: 20px;
+  color: #cbd5e1;
+}
+
+.lesson ul li {
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+
+.lesson ul li strong {
+  color: #38bdf8; /* Highlight bold words in lists */
+}
+
+/* CODE BLOCKS (CRITICAL FOR CODING TUTORIALS) */
+.lesson pre {
+  background: #0f172a;
+  padding: 15px 20px;
+  border-radius: 8px;
+  overflow-x: auto;
+  border: 1px solid #334155;
+  margin: 20px 0;
+  color: #a5b4fc; /* Light purple for code text */
+  font-family: "Courier New", Courier, monospace;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+/* INLINE CODE (e.g., <tag>) */
+.lesson code {
+  background: #020617;
+  padding: 3px 6px;
+  border-radius: 4px;
+  color: #fb7185; /* Pinkish accent for inline code */
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.9em;
+}
+
+/* BLOCKQUOTES */
+.lesson blockquote {
+  border-left: 4px solid #38bdf8;
+  background: #0f172a;
+  padding: 15px 20px;
+  margin: 20px 0;
+  border-radius: 0 8px 8px 0;
+  font-style: italic;
+  color: #94a3b8;
+}
+
+.home-btn {
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  padding: 8px 14px;
+  background: #38bdf8;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.2s;
+}
+
+.home-btn:hover {
+  background: #0ea5e9;
+}

@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web Lab IDE</title>
+
+    <link rel="stylesheet" href="main.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet" />
+
+    <script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.53.0/min/vs/loader.js"></script>
+    <script src="https://unpkg.com/eslint-linter-browserify@8.57.0/dist/eslint-linter-browserify.min.js"></script>
+  </head>
+
+  <body class="dark-mode">
+    <header class="top-header">
+      <button id="menu-toggle" class="menu-btn" title="Цэсийг нээх">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+
+      <div class="header-title">Web Lab</div>
+
+      <button class="run-btn" onclick="runCode()">КОД АЖИЛЛУУЛАХ</button>
+    </header>
+
+    <div class="app-container">
+      <aside id="sidebar" class="sidebar">
+        <div class="sidebar-top">
+          <i class="fa-solid fa-caret-left close-icon" id="close-sidebar"></i>
+          <div class="user-profile">
+            <div class="avatar"></div>
+            <h3>Хэрэглэгчийн нэр</h3>
+          </div>
+        </div>
+
+        <nav class="sidebar-nav">
+          <ul>
+            <li class="nav-item">
+              <a href="learn.html">
+                <i class="fa-regular fa-file-code"></i>
+                HTML-ийн талаар дэлгэрүүлэх
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <i class="fa-solid fa-layer-group"></i>
+              <a href="advanced.html">Түвшнүүд</a>
+            </li>
+
+            <li class="nav-item">
+              <i class="fa-solid fa-user"></i>
+              <a href="profile.html">Profile</a>
+            </li>
+
+            <li><hr /></li>
+
+            <li class="nav-item" onclick="toggleTheme()">
+              <i class="fa-solid fa-moon"></i>
+              Toggle Dark Mode
+            </li>
+
+            <li class="nav-item">
+              <i class="fa-solid fa-right-from-bracket"></i>
+              <a href="login.html">Гарах</a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+      <main class="editor-layout">
+        <div class="code-section">
+          <div class="editor-tabs">
+            <button class="tab active" onclick="showEditor('html', this)">
+              index.html
+            </button>
+            <button class="tab" onclick="showEditor('css', this)">
+              style.css
+            </button>
+            <button class="tab" onclick="showEditor('js', this)">
+              script.js
+            </button>
+          </div>
+          <div id="html-editor" class="editor"></div>
+          <div id="css-editor" class="editor hidden"></div>
+          <div id="js-editor" class="editor hidden"></div>
+        </div>
+
+        <div class="result-section">
+          <div class="result-header">ҮЗҮҮЛЭЛТ</div>
+          <iframe id="preview-window"></iframe>
+        </div>
+      </main>
+    </div>
+
+    <button id="launcher" title="Generate Daily Layout Challenge">🎯</button>
+
+    <div id="overlay" class="overlay-hidden">
+      <div class="overlay-content">
+        <div
+          style="
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+          ">
+          <h2 style="margin: 0">Daily Layout Challenge</h2>
+          <button
+            id="closeOverlay"
+            style="
+              border: none;
+              background: none;
+              font-size: 28px;
+              cursor: pointer;
+              color: #999;
+            ">
+            &times;
+          </button>
+        </div>
+
+        <p>Practice CSS by viewing this randomized grid layout.</p>
+
+        <div id="mini-preview-wrap">
+          <iframe id="mini-preview"></iframe>
+        </div>
+
+        <div style="display: flex; gap: 10px">
+          <button id="chooseBtn" class="btn-primary">
+            Энэ зураглалыг сонгох
+          </button>
+          <button id="regenBtn" class="btn-secondary">Шинэ зураглал</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="main.js"></script>
+  </body>
+</html>

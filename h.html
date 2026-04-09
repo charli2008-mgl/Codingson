@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Layout Generator</title>
+    <style>
+        /* --- CSS Variables for Light/Dark Mode --- */
+        :root {
+            --bg-color: #f8f9fa;
+            --text-color: #333333;
+            --block-bg: #ffffff;
+            --block-border: #e9ecef;
+            --accent-color: #4361ee;
+            --accent-hover: #3f37c9;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            
+            /* Fixed Element Colors */
+            --header-bg: #2b2d42;
+            --header-text: #ffffff;
+            --menu-bg: #8d99ae;
+            --footer-bg: #2b2d42;
+        }
+
+        body.dark-mode {
+            --bg-color: #121212;
+            --text-color: #e0e0e0;
+            --block-bg: #1e1e1e;
+            --block-border: #333333;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            
+            --header-bg: #000000;
+            --menu-bg: #1f2937;
+            --footer-bg: #000000;
+        }
+
+        /* --- Basic Reset & Styling --- */
+        body {
+            font-family: 'Inter', 'Segoe UI', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .controls {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        button {
+            padding: 12px 24px;
+            font-size: 16px;
+            font-weight: 600;
+            color: white;
+            background-color: var(--accent-color);
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.2s, transform 0.1s;
+            box-shadow: var(--shadow);
+        }
+
+        button:hover {
+            background-color: var(--accent-hover);
+        }
+
+        button:active {
+            transform: scale(0.98);
+        }
+
+        /* --- The CSS Grid Container --- */
+        #layout-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-auto-rows: minmax(120px, auto);
+            gap: 20px;
+            width: 100%;
+            max-width: 1000px;
+            grid-auto-flow: dense;
+        }
+
+        /* --- Individual Grid Items --- */
+        .layout-block {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-color);
+            background-color: var(--block-bg);
+            border: 1px solid var(--block-border);
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        /* Fixed Elements Styling */
+        .fixed-element {
+            color: var(--header-text);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-size: 0.9rem;
+            border: none;
+        }
+        
+        .type-header { background-color: var(--header-bg); }
+        .type-menu { background-color: var(--menu-bg); min-height: 60px; }
+        .type-footer { background-color: var(--footer-bg); min-height: 80px;}
+
+        /* Specific Component Styling Hints */
+        .type-hero { border-left: 5px solid #f72585; }
+        .type-sidebar { border-top: 5px solid #4cc9f0; }
+        .type-article { border-top: 5px solid #4361ee; }
+        .type-feature { border-top: 5px solid #7209b7; }
+
+    </style>
+</head>
+<body>
+
+    <div class="controls">
+        <button id="generate-btn">Generate New Layout</button>
+        <button id="theme-toggle-btn">Toggle Dark Mode</button>
+    </div>
+    
+    <div id="layout-container"></div>
+
+    <script>
+        const container = document.getElementById('layout-container');
+        const generateBtn = document.getElementById('generate-btn');
+        const themeBtn = document.getElementById('theme-toggle-btn');
+
+        // Dark Mode Logic
+        themeBtn.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+        });
+
+        // Smart Constraints: Defining how specific components behave
+        // minCol/maxCol defines width (out of 4 columns)
+        // minRow/maxRow defines height
+        const componentTypes = [
+            { name: 'Hero Section', type: 'hero', minCol: 4, maxCol: 4, minRow: 2, maxRow: 3 },
+            { name: 'Sidebar', type: 'sidebar', minCol: 1, maxCol: 1, minRow: 2, maxRow: 4 },
+            { name: 'Main Article', type: 'article', minCol: 2, maxCol: 3, minRow: 2, maxRow: 3 },
+            { name: 'Feature Card', type: 'feature', minCol: 1, maxCol: 2, minRow: 1, maxRow: 2 },
+            { name: 'Image Gallery', type: 'feature', minCol: 2, maxCol: 4, minRow: 1, maxRow: 2 },
+            { name: 'Ad Banner', type: 'feature', minCol: 1, maxCol: 4, minRow: 1, maxRow: 1 }
+        ];
+
+        function getRandomInt(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        function createBlock(name, colSpan, rowSpan, customClass = '') {
+            const block = document.createElement('div');
+            block.className = `layout-block ${customClass}`;
+            block.style.gridColumn = `span ${colSpan}`;
+            block.style.gridRow = `span ${rowSpan}`;
+            block.textContent = name;
+            container.appendChild(block);
+        }
+
+        function generateLayout() {
+            container.innerHTML = ''; 
+
+            // 1. FIXED TOP: Header and Menu
+            createBlock('Global Header', 4, 1, 'fixed-element type-header');
+            createBlock('Navigation & Breadcrumbs', 4, 1, 'fixed-element type-menu');
+
+            // 2. SMART RANDOM CONTENT
+            const numberOfBlocks = getRandomInt(4, 9);
+            
+            // Track if we already added a Hero or Sidebar to prevent layout clutter
+            let hasHero = false;
+            let hasSidebar = false;
+
+            for (let i = 0; i < numberOfBlocks; i++) {
+                let comp;
+                
+                // Force a Hero section sometimes, but only once
+                if (i === 0 && !hasHero && Math.random() > 0.3) {
+                    comp = componentTypes.find(c => c.name === 'Hero Section');
+                    hasHero = true;
+                } 
+                // Force a Sidebar sometimes, but only once
+                else if (i === 1 && !hasSidebar && Math.random() > 0.2) {
+                    comp = componentTypes.find(c => c.name === 'Sidebar');
+                    hasSidebar = true;
+                } 
+                // Otherwise pick a random component
+                else {
+                    // Filter out Hero and Sidebar from general random selection to keep it clean
+                    const availableComps = componentTypes.filter(c => c.name !== 'Hero Section' && c.name !== 'Sidebar');
+                    comp = availableComps[getRandomInt(0, availableComps.length - 1)];
+                }
+
+                // Apply the constraints defined in our array
+                const colSpan = getRandomInt(comp.minCol, comp.maxCol);
+                const rowSpan = getRandomInt(comp.minRow, comp.maxRow);
+                
+                createBlock(comp.name, colSpan, rowSpan, `type-${comp.type}`);
+            }
+
+            // 3. FIXED BOTTOM: Footer
+            createBlock('Footer Links & Copyright', 4, 1, 'fixed-element type-footer');
+        }
+
+        // Initialize
+        generateBtn.addEventListener('click', generateLayout);
+        generateLayout(); 
+    </script>
+</body>
+</html>
