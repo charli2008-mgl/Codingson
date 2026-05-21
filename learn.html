@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+<meta charset="UTF-8">
+<title>HTML CSS Суралцах</title>
+<link rel="stylesheet" href="learn.css">
+<script src="learn.js"></script>
+</head>
+
+<body>
+
+<header>
+
+<h1>WEB СУРАЛЦАХ</h1>
+<button onclick="goHome()" class="home-btn">Буцах</button>
+</header>
+
+<section class="container">
+
+    <aside class="sidebar">
+
+<h3>HTML</h3>
+
+<ul id="htmlList">
+
+<li onclick="openLesson('html_intro')">HTML Гэж юу вэ?</li>
+<li onclick="openLesson('html_elements')">HTML Elements</li>
+<li onclick="openLesson('html_semantics')">HTML Semantics</li>
+
+</ul>
+
+<h3>CSS</h3>
+
+<ul id="cssList">
+
+<li onclick="openLesson('css_intro')">CSS Гэж юу вэ?</li>
+<li onclick="openLesson('css_selectors')">CSS Selectors</li>
+<li onclick="openLesson('css_layout')">CSS Layout</li>
+
+</ul>
+
+<h3>Java script</h3>
+
+<ul id="JSList">
+
+<li onclick="openLesson('js_intro')">JS Гэж юу вэ?</li>
+<li onclick="openLesson('js_function')">JS Functions</li>
+<li onclick="openLesson('js_data_types')">JS Data Types</li>
+<li onclick="openLesson('js_variables')">JS Variables (Хувьсагч)</li>
+<li onclick="openLesson('js_conditions')">JS Conditions (Нөхцөл)</li>
+<li onclick="openLesson('js_dom')">JS DOM (Элемент удирдах)</li>
+<li onclick="openLesson('js_arrays')">JS Arrays (Массив)</li>
+<li onclick="openLesson('js_loops')">JS Loops (Давталт)</li>
+<li onclick="openLesson('js_events')">JS Events (Үйлдэл)</li>
+<li onclick="openLesson('js_objects')">JS Objects (Объект)</li>
+<li onclick="openLesson('js_classes')">JS Classes (Класс)</li>
+<li onclick="openLesson('js_arrays')">JS Arrays (Массив)</li>
+<li onclick="openLesson('js_loops')">JS Loops (Давталт)</li>
+<li onclick="openLesson('js_events')">JS Events (Үйлдэл)</li>
+<li onclick="openLesson('js_objects')">JS Objects (Объект)</li>
+<li onclick="openLesson('js_classes')">JS Classes (Класс)</li>
+
+</ul>
+
+</aside>
+
+
+<div class="main">
+<div id="html_intro" class="lesson active">
+    <h2>HTML гэж юу вэ? (HyperText Markup Language)</h2>
+    <p>HTML нь вэб хуудасны агуулга болон бүтцийг тодорхойлдог стандарт тэмдэглэгээт хэл юм.</p>
+
+    <ul>
+        <li><strong>HyperText:</strong> Хуудас хооронд холбоос (link) ашиглан шилжих боломж.</li>
+        <li><strong>Markup:</strong> Текст, зураг, видеог вэб хөтөч дээр хэрхэн харагдахыг "tag" ашиглан тэмдэглэх.</li>
+    </ul>
+
+    <h3>HTML-ийн үндсэн бүтэц (Tags)</h3>
+    <p>HTML нь ихэвчлэн нээх <code>&lt;tag&gt;</code> ба хаах <code>&lt;/tag&gt;</code> гэсэн хос шошгоос бүрдэнэ.</p>
+    
+    <pre>
+&lt;h1&gt;Энэ бол гарчиг&lt;/h1&gt;
+&lt;p&gt;Энэ бол эх бичвэр буюу параграф.&lt;/p&gt;
+&lt;a href="https://google.com"&gt;Энэ бол холбоос&lt;/a&gt;
+    </pre>
+</div>
+
+<div id="html_elements" class="lesson">
+    <h2>HTML Элемент гэж юу вэ?</h2>
+    <p>HTML элемент нь <strong>Нээх tag + Агуулга + Хаах tag</strong>-аас бүрдэнэ.</p>
+
+    <div class="element-structure">
+        <h3>1. Элементийн бүтэц</h3>
+        <p>Жишээ нь: <code>&lt;p&gt;Сайн байна уу?&lt;/p&gt;</code></p>
+        <ul>
+            <li><code>&lt;p&gt;</code> - Нээх шошго (Start tag)</li>
+            <li><code>Сайн байна уу?</code> - Агуулга (Content)</li>
+            <li><code>&lt;/p&gt;</code> - Хаах шошго (End tag)</li>
+        </ul>
+    </div>
+
+    <h3>2. Хоосон элементүүд (Empty Elements)</h3>
+    <p>Зарим элементүүдэд агуулга байдаггүй бөгөөд тэдгээрийг хаах шаардлагагүй байдаг.</p>
+    <ul>
+        <li><code>&lt;br&gt;</code> - Шинэ мөрөнд шилжих</li>
+        <li><code>&lt;img&gt;</code> - Зураг оруулах</li>
+        <li><code>&lt;input&gt;</code> - Мэдээлэл оруулах талбар</li>
+    </ul>
+
+    <h3>3. Nested Elements (Үүрлэсэн элементүүд)</h3>
+    <p>Элемент дотор өөр элемент байж болно.</p>
+    <pre>
+&lt;div&gt;
+  &lt;h1&gt;Гарчиг&lt;/h1&gt;
+  &lt;p&gt;Эх бичвэр&lt;/p&gt;
+&lt;/div&gt;
+    </pre>
+</div>
+
+<div id="html_semantics" class="lesson">
+    <h2>HTML Semantics (Утга зүйт тагууд)</h2>
+    <p>Semantic tag нь тухайн кодын блок ямар үүрэгтэйг хүн болон компьютерт (browser, SEO) ойлгомжтой илэрхийлдэг.</p>
+
+    <div class="semantic-comparison">
+        <h3>1. Non-Semantic (Утга илэрхийлдэггүй)</h3>
+        <p>Ямар ч мэдээлэл өгдөггүй: <code>&lt;div&gt;</code>, <code>&lt;span&gt;</code></p>
+
+        <h3>2. Semantic (Утга илэрхийлдэг)</h3>
+        <p>Өөрийн гэсэн утгатай: <code>&lt;header&gt;</code>, <code>&lt;footer&gt;</code>, <code>&lt;article&gt;</code></p>
+    </div>
+
+    <hr>
+
+    <h3>Түгээмэл ашиглагддаг Semantic тагууд:</h3>
+    <ul>
+        <li><strong>&lt;header&gt;:</strong> Хуудасны толгой хэсэг (лого, цэс).</li>
+        <li><strong>&lt;nav&gt;:</strong> Цэс буюу навигацийн холбоосууд.</li>
+        <li><strong>&lt;main&gt;:</strong> Хуудасны үндсэн, гол агуулга.</li>
+        <li><strong>&lt;section&gt;:</strong> Сэдэвчилсэн бүлэг хэсэг.</li>
+        <li><strong>&lt;article&gt;:</strong> Бие даасан нийтлэл, пост.</li>
+        <li><strong>&lt;aside&gt;:</strong> Хажуугийн нэмэлт мэдээлэл (sidebar).</li>
+        <li><strong>&lt;footer&gt;:</strong> Хуудасны хөл хэсэг (холбоо барих, зохиогчийн эрх).</li>
+    </ul>
+</div>
+
+<div id="css_intro" class="lesson">
+    <h2>CSS гэж юу вэ? (Cascading Style Sheets)</h2>
+    <p>CSS нь HTML-ээр бүтээсэн элементийн харагдах байдал, загварыг тодорхойлдог хэл юм.</p>
+
+    <ul>
+        <li><strong>Layout:</strong> Элементүүдийн байршил, хоорондын зай.</li>
+        <li><strong>Design:</strong> Өнгө, фонт, зураг, хүрээ (border).</li>
+        <li><strong>Responsiveness:</strong> Гар утас, таблет, компьютер дээр вэбийг өөр өөрөөр харагдуулах.</li>
+    </ul>
+
+    <h3>CSS-ийн үндсэн бүтэц (Syntax)</h3>
+    <p>CSS нь <strong>Selector</strong> болон <strong>Declaration block</strong>-оос бүрдэнэ.</p>
+    
+    <pre>
+h1 {
+  color: blue;        /* Текстийн өнгө */
+  font-size: 24px;    /* Үсгийн хэмжээ */
+  text-align: center; /* Голлуулах */
+}
+    </pre>
+</div>
+
+<div id="css_selectors" class="lesson">
+    <h2>CSS Selectors (Сонгогч)</h2>
+    <p>CSS Selector нь загваржуулахыг хүсэж буй HTML элементээ "барьж авах" буюу сонгох арга юм.</p>
+
+    <div class="selector-types">
+        <h3>1. Element Selector</h3>
+        <p>HTML тагийн нэрээр нь шууд сонгох. Бүх ижил тагуудыг өөрчилнө.</p>
+        <pre>p { color: blue; } /* Бүх параграф цэнхэр болно */</pre>
+
+        <h3>2. Class Selector</h3>
+        <p>Тусгайлан нэрлэсэн хэсгийг сонгохдоо <code>.</code> (цэг) ашиглана. Олон элементэд ижил нэр өгч болно.</p>
+        <pre>.highlight { background: yellow; }</pre>
+
+        <h3>3. ID Selector</h3>
+        <p>Цор ганц элементийг сонгохдоо <code>#</code> (тор) ашиглана. Нэг хуудас дээр зөвхөн нэг л давтагдашгүй ID байна.</p>
+        <pre>#main-title { font-size: 40px; }</pre>
+
+        <h3>4. Universal Selector</h3>
+        <p>Хуудас дээрх бүх элементийг сонгохдоо <code>*</code> ашиглана.</p>
+        <pre>* { margin: 0; padding: 0; }</pre>
+    </div>
+</div>
+
+<div id="css_layout" class="lesson">
+    <h2>CSS Layout (Байршил тогтоох)</h2>
+    <p>Layout нь вэб хуудасны элементүүдийг хаана, ямар зайтай байрлахыг шийддэг.</p>
+
+    <div class="layout-methods">
+        <h3>1. Flexbox (Нэг хэмжээст)</h3>
+        <p>Элементүүдийг нэг мөрөнд (хөндлөн) эсвэл нэг баганад (босоо) эгнүүлэн байрлуулахад тохиромжтой.</p>
+        <pre>
+.container {
+  display: flex;
+  justify-content: space-between; /* Зайг ижил хуваах */
+  align-items: center;            /* Босоо тэнхлэгээр голлуулах */
+}
+        </pre>
+
+        <h3>2. CSS Grid (Хоёр хэмжээст)</h3>
+        <p>Мөр болон баганыг зэрэг ашиглан илүү нарийн, цогц бүтэц үүсгэхэд ашиглана.</p>
+        <pre>
+.wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr; /* 3 ижил багана */
+  gap: 20px;                          /* Хоорондын зай */
+}
+        </pre>
+    </div>
+</div>
+
+<div id="js_intro" class="lesson">
+    <h2>JavaScript (JS) гэж юу вэ?</h2>
+    <p>JavaScript нь вэб хуудсыг интерактив буюу "амьд" болгодог програмчлалын хэл юм.</p>
+
+    <ul>
+        <li><strong>Интерактив байдал:</strong> Товчлуур дарах, форм бөглөх, цэс нээгдэх зэрэг бүх хөдөлгөөн.</li>
+        <li><strong>Өгөгдөл боловсруулах:</strong> Хэрэглэгчийн оруулсан мэдээллийг тооцоолох, сервер рүү илгээх.</li>
+        <li><strong>Бодит цагийн шинэчлэл:</strong> Хуудсыг дахин ачаалахгүйгээр мэдээллийг шинэчлэх (жишээ нь: сошиал медиагийн "like" дарах).</li>
+    </ul>
+
+    <blockquote>
+        "HTML бол бүтэц, CSS бол загвар, харин JavaScript бол үйлдэл юм."
+    </blockquote>
+</div>
+
+<div id="js_function" class="lesson">
+    <h2>JavaScript Functions (Функц)</h2>
+    <p>Функц нь тодорхой нэг үйлдлийг гүйцэтгэхэд зориулагдсан кодын блок юм.</p>
+    
+    <div class="function-breakdown">
+        <h3>1. Функц зарлах (Declaration)</h3>
+        <p><code>function</code> түлхүүр үг ашиглан нэр өгч үүсгэнэ.</p>
+        <pre>
+function sayHello() {
+  console.log("Сайн байна уу!");
+}
+        </pre>
+
+        <h3>2. Параметр ба Аргумент (Parameters & Arguments)</h3>
+        <p>Функц руу мэдээлэл дамжуулж, илүү уян хатан болгох боломжтой.</p>
+        <pre>
+function greet(name) { // 'name' бол параметр
+  console.log("Сайн байна уу, " + name);
+}
+greet("Бат"); // "Бат" бол аргумент
+        </pre>
+
+        <h3>3. Утга буцаах (Return Statement)</h3>
+        <p>Функц тооцоолол хийгээд хариуг нь <code>return</code> ашиглан буцааж өгдөг.</p>
+        <pre>
+function add(a, b) {
+  return a + b;
+}
+let result = add(5, 3); // result нь 8 болно
+        </pre>
+    </div>
+</div>
+
+<div id="js_data_types" class="lesson">
+    <h2>JavaScript Data Types</h2>
+    <p>JavaScript variables can hold different data types. They are divided into Primitives and Objects.</p>
+    <ul>
+        <li><strong>String:</strong> Текст өгөгдөл (жишээ нь, "Hello").</li>
+<li><strong>Number:</strong> Бүхэл болон аравтын тоо (жишээ нь, 42, 3.14).</li>
+<li><strong>Boolean:</strong> Үнэн эсвэл худал логик (жишээ нь, true, false).</li>
+<li><strong>Undefined:</strong> Утга оноогдоогүй хувьсагч.</li>
+<li><strong>Null:</strong> Санаатайгаар хоосон утга.</li>
+<li><strong>Object:</strong> Нарийн бүтэцтэй өгөгдлийн цуглуулга.</li>
+    </ul>
+</div>
+<div id="js_variables" class="lesson">
+    <h2>JavaScript Variables (Хувьсагч)</h2>
+    <p>Хувьсагч нь өгөгдлийг (текст, тоо гэх мэт) түр хадгалах сав юм. JavaScript-д хувьсагч зарлах 3 үндсэн арга бий.</p>
+
+    <ul>
+        <li><strong>let:</strong> Утга нь дараа өөрчлөгдөж болох хувьсагч үүсгэхэд ашиглана.</li>
+        <li><strong>const:</strong> Утга нь хэзээ ч өөрчлөгдөхгүй (тогтмол) хувьсагч үүсгэхэд ашиглана.</li>
+        <li><strong>var:</strong> Хуучин арга (орчин үеийн кодонд бага ашиглагддаг).</li>
+    </ul>
+
+    <h3>Жишээ код:</h3>
+    <pre>
+let age = 25;
+age = 26; // let ашигласан тул утгыг өөрчилж болно
+
+const name = "Бат";
+// name = "Болд"; // Алдаа заана! Учир нь const өөрчлөгдөхгүй.
+    </pre>
+</div>
+
+<div id="js_conditions" class="lesson">
+    <h2>JS Conditions (Нөхцөл шалгах)</h2>
+    <p>Тодорхой нөхцөл биелсэн эсэхээс хамаарч програм өөр өөр үйлдэл хийх шаардлага гардаг. Үүнд <code>if...else</code> бүтцийг ашиглана.</p>
+
+    <h3>if...else бүтэц:</h3>
+    <pre>
+let score = 85;
+
+if (score >= 90) {
+    console.log("Онцгой сайн!");
+} else if (score >= 80) {
+    console.log("Сайн байна.");
+} else {
+    console.log("Дахин хичээгээрэй.");
+}
+    </pre>
+</div>
+
+<div id="js_dom" class="lesson">
+    <h2>JS DOM (Document Object Model)</h2>
+    <p>DOM-ийг ашиглан JavaScript нь таны HTML элементүүдийг олж харж, тэдгээрийг өөрчлөх, устгах эсвэл шинээр нэмэх боломжтой болдог.</p>
+
+    <ul>
+        <li><strong>Элемент сонгох:</strong> <code>document.querySelector(".class-name")</code> ашиглаж HTML-ээс элемент барьж авна.</li>
+        <li><strong>Үйлдэл сонсох:</strong> <code>addEventListener()</code> ашиглан хэрэглэгч товч дарах, хулгана чирэх үед юу болохыг заана.</li>
+    </ul>
+
+    <h3>Жишээ: Товчлуур дарахад текст өөрчлөгдөх</h3>
+    <pre>
+// 1. HTML доторх товч болон текстийг барьж авах
+const btn = document.querySelector(".my-btn");
+const text = document.querySelector(".my-text");
+
+// 2. Товчлуур дээр дарах (click) үйлдэл нэмэх
+btn.addEventListener("click", function() {
+    text.textContent = "Текст амжилттай өөрчлөгдлөө!";
+    text.style.color = "#38bdf8";
+});
+    </pre>
+</div>
+
+<div id="js_arrays" class="lesson">
+    <h2>JavaScript Arrays (Массив)</h2>
+    <p>Массив нь олон утгыг нэг хувьсагчид хадгалах боломжийг олгодог өгөгдлийн бүтэц юм. Массив нь 0-ээс эхлэн индекслэгддэг.</p>
+
+    <h3>Массив үүсгэх</h3>
+    <pre>
+// Хоёр аргаар массив үүсгэж болно
+let fruits = ["Алим", "Банана", "Усга"];
+let numbers = new Array(1, 2, 3, 4, 5);
+    </pre>
+
+    <h3>Массивтай ажиллах үндсэн аргууд</h3>
+    <ul>
+        <li><strong>push()</strong> - Массивын төгсгөлд элемент нэмэх</li>
+        <li><strong>pop()</strong> - Массивын төгсгөлөөс элемент устгах</li>
+        <li><strong>shift()</strong> - Массивын эхнээс элемент устгах</li>
+        <li><strong>unshift()</strong> - Массивын эхэнд элемент нэмэх</li>
+        <li><strong>length</strong> - Массивын урт</li>
+    </ul>
+
+    <h3>Жишээ:</h3>
+    <pre>
+let colors = ["улаан", "ногоон", "цэнхэр"];
+
+// Урт шалгах
+console.log(colors.length); // 3
+
+// Элементэд хандах
+console.log(colors[0]); // улаан
+console.log(colors[1]); // ногоон
+
+// Элемент нэмэх
+colors.push("шар");
+console.log(colors); // ["улаан", "ногоон", "цэнхэр", "шар"]
+    </pre>
+</div>
+
+<div id="js_loops" class="lesson">
+    <h2>JavaScript Loops (Давталт)</h2>
+    <p>Давталт нь тодорхой кодыг олон удаа гүйцэтгэхэд ашиглагддаг. Энэ нь ижил үйлдлийг олон удаа хийхэд маш хэрэгтэй.</p>
+
+    <h3>1. for давталт</h3>
+    <p>Тооцоололд суурилсан давталт. Тоолуур ашиглан тодорхой тооны удаа давтагдана.</p>
+    <pre>
+for (let i = 0; i < 5; i++) {
+    console.log("Давталт: " + i);
+}
+// Гаралт: Давталт: 0, Давталт: 1, ... Давталт: 4
+    </pre>
+
+    <h3>2. while давталт</h3>
+    <p>Нөхцөл биелэх хүртэл давтагдана.</p>
+    <pre>
+let count = 0;
+while (count < 3) {
+    console.log("Count: " + count);
+    count++;
+}
+    </pre>
+
+    <h3>3. for...of давталт</h3>
+    <p>Массив эсвэл обектийн элементүүдээр давтахдаа ашиглагдна.</p>
+    <pre>
+let animals = ["муур", "нохой", "хүн"];
+
+for (let animal of animals) {
+    console.log(animal);
+}
+    </pre>
+
+    <h3>4. forEach давталт</h3>
+    <p>Массивын бүх элементэд тус бүрээр функц дуудна.</p>
+    <pre>
+let numbers = [1, 2, 3];
+
+numbers.forEach(function(num) {
+    console.log(num * 2);
+});
+// Гаралт: 2, 4, 6
+    </pre>
+</div>
+
+<div id="js_events" class="lesson">
+    <h2>JavaScript Events (Үйлдэл)</h2>
+    <p>Events нь хэрэглэгч вэб хуудсантай харилцах үед үүсдэг. Жишээ нь товч дарах, хулгана хөдөлгөх, гар ашиглах зэрэг.</p>
+
+    <h3>Үндсэн үйлдлүүд</h3>
+    <ul>
+        <li><strong>click</strong> - Товчлуур дээр дарах</li>
+        <li><strong>mouseover</strong> - Хулгана элемент дээр очих</li>
+        <li><strong>mouseout</strong> - Хулгана элементээс гарах</li>
+        <li><strong>keydown</strong> - Гар дээр товч дарах</li>
+        <li><strong>submit</strong> - Форм илгээх</li>
+        <li><strong>change</strong> - Өөрчлөлт гарах</li>
+    </ul>
+
+    <h3>Жишээ: Товчлуур дарах үйлдэл</h3>
+    <pre>
+const button = document.querySelector("#myButton");
+
+button.addEventListener("click", function() {
+    alert("Товчлуур дарамдлаа!");
+});
+    </pre>
+
+    <h3>Жишээ: Хулгана дээр очих</h3>
+    <pre>
+const box = document.querySelector(".box");
+
+box.addEventListener("mouseover", function() {
+    box.style.backgroundColor = "blue";
+});
+
+box.addEventListener("mouseout", function() {
+    box.style.backgroundColor = "red";
+});
+    </pre>
+
+    <h3>Жишээ: Гар ашиглах</h3>
+    <pre>
+document.addEventListener("keydown", function(event) {
+    console.log("Дасан товч: " + event.key);
+});
+    </pre>
+</div>
+
+<div id="js_objects" class="lesson">
+    <h2>JavaScript Objects (Объект)</h2>
+    <p>Объект нь key-value хосоор өгөгдөл хадгалах өгөгдлийн төрөл юм. Энэ нь бодит ертөнцийн объектуудыг (хүн, машин гэх мэт) загварчлахад ашиглагдна.</p>
+
+    <h3>Объект үүсгэх</h3>
+    <pre>
+let person = {
+    нэр: "Бат",
+    нас: 25,
+    хот: "Улаанбаатар"
+};
+    </pre>
+
+    <h3>Объектийн утга авах</h3>
+    <pre>
+// Хоёр аргаар утга авах болно
+console.log(person.нэр); // Бат (dot notation)
+console.log(person["нас"]); // 25 (bracket notation)
+    </pre>
+
+    <h3>Объектийн утга өөрчлөх</h3>
+    <pre>
+person.нас = 26;
+person["хот"] = "Дархан";
+    </pre>
+
+    <h3>Объектод шинэ шинж чанар нэмэх</h3>
+    <pre>
+person.мэргэжил = "Программист";
+    </pre>
+
+    <h3>Object methods</h3>
+    <pre>
+let car = {
+    марка: "Toyota",
+    модел: "Camry",
+    жолоод: function() {
+        console.log("Машин жолоодож байна...");
+    }
+};
+
+car.jолоод(); // Машин жолоодож байна...
+    </pre>
+</div>
+
+<div id="js_classes" class="lesson">
+    <h2>JavaScript Classes (Класс)</h2>
+    <p>Class нь объектууд үүсгэх загвар юм. Энэ нь Object-oriented programming (OOP)-ийн үндсэн ойлголт юм.</p>
+
+    <h3>Class зарлах</h3>
+    <pre>
+class Хүн {
+    constructor(нэр, нас) {
+        this.нэр = нэр;
+        this.нас = нас;
+    }
+
+    танилцуулах() {
+        console.log("Сайн байна, би " + this.нэр + " байна.");
+    }
+}
+    </pre>
+
+    <h3>Class-аас объект үүсгэх</h3>
+    <pre>
+let хүн1 = new Хүн("Бат", 25);
+let хүн2 = new Хүн("Сараа", 30);
+
+хүн1.танилцуулах(); // Сайн байна, би Бат байна.
+хүн2.танилцуулах(); // Сайн байна, би Сараа байна.
+    </pre>
+
+    <h3>Getter ба Setter</h3>
+    <pre>
+class Тоо {
+    constructor(утга) {
+        this._утга = утга;
+    }
+
+    get утга() {
+        return this._утга;
+    }
+
+    set утга(шинэ_утга) {
+        this._утга = шинэ_утга;
+    }
+}
+
+let t = new Тоо(10);
+console.log(t.утга); // 10
+t.утга = 20;
+console.log(t.утга); // 20
+    </pre>
+
+    <h3>Өвлөлт (Inheritance)</h3>
+    <pre>
+class Амьтан {
+    constructor(нэр) {
+        this.нэр = нэр;
+    }
+
+    амьдрах() {
+        console.log(this.нэр + " амьдарч байна.");
+    }
+}
+
+class Муур extends Амьтан {
+    мөргөх() {
+        console.log("Мяу!");
+    }
+}
+
+let муур = new Муур("Том");
+муур.амьдрах(); // Том амьдарч байна.
+муур.мөргөх(); // Мяу!
+    </pre>
+</div>
+
+</div>
+    </div>
+
+
+</section>
+
+</body>
+</html>

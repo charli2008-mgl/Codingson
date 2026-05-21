@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+  <meta charset="UTF-8">
+  <title>Анхан шатны HTML хичээл</title>
+  <link rel="stylesheet" href="beginner.css">
+</head> 
+
+<body>
+
+<div class="app">
+  
+  <div class="instructions" id="protected-content">
+    <h2 id="level-title">Түвшин 1</h2>
+    
+    <div class="lesson" id="lesson-text">
+    </div>
+
+    <div class="task">
+      <hr>
+      <strong>Таны даалгавар:</strong>
+      <p id="task-text"></p>
+    </div>
+
+    <p id="feedback" class="feedback"></p>
+
+    <div class="stars">
+      Нийт од: ⭐ <span id="stars">0</span>
+    </div>
+  </div>
+
+  <div class="editor">
+    <div class="tabs">
+      <button class="tab active" onclick="showTab('html')">HTML</button>
+      <button class="tab" id="cssTab" onclick="showTab('css')" disabled>CSS (Түгжигдсэн)</button>
+    </div>
+
+    <textarea id="htmlCode" placeholder="Энд HTML бичнэ үү..."></textarea>
+    <textarea id="cssCode" class="hidden" placeholder="Энд CSS бичнэ үү..."></textarea>
+
+    <button class="run-btn" onclick="runCode()">Код ажиллуулах ▶</button>
+  </div>
+
+  <div class="preview">
+    <h3>Урьдчилан харах</h3>
+    <iframe id="output"></iframe>
+  </div>
+
+</div>
+
+<script src="beginner.js"></script>
+
+</body>
+</html>

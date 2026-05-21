@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile</title>
+
+    <link rel="stylesheet" href="main.css" />
+    <link rel="stylesheet" href="profile.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet" />
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=YOUR_GA_MEASUREMENT_ID"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "YOUR_GA_MEASUREMENT_ID");
+    </script>
+  </head>
+
+  <body class="dark-mode">
+    <header class="top-header">
+      <button id="menu-toggle" class="menu-btn" title="Цэсийг нээх">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+
+      <div class="header-title">Web Lab</div>
+    </header>
+
+    <div class="app-container">
+      <aside id="sidebar" class="sidebar">
+        <div class="sidebar-top">
+          <i class="fa-solid fa-caret-left close-icon" id="close-sidebar"></i>
+          <div class="user-profile">
+            <div class="avatar"></div>
+            <h3>Хэрэглэгчийн нэр</h3>
+          </div>
+        </div>
+
+        <nav class="sidebar-nav">
+          <ul>
+            <li class="nav-item">
+              <i class="fa-solid fa-code"></i>
+              <a href="main.html">Back to Editor</a>
+            </li>
+
+            <li><hr /></li>
+
+            <li class="nav-item">
+              <a href="learn.html">
+                <i class="fa-regular fa-file-code"></i>
+                HTML-ийн талаар дэлгэрүүлэх
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <i class="fa-solid fa-layer-group"></i>
+              <a href="advanced.html">Түвшнүүд</a>
+            </li>
+
+            <li class="nav-item active">
+              <i class="fa-solid fa-user"></i>
+              Профайл
+            </li>
+
+            <li><hr /></li>
+
+            <li class="nav-item" onclick="toggleTheme()">
+              <i class="fa-solid fa-moon"></i>
+              Toggle Dark Mode
+            </li>
+
+            <li class="nav-item">
+              <i class="fa-solid fa-right-from-bracket"></i>
+              <a href="index.html">Гарах</a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+      <main class="profile-layout">
+        <div class="profile-header">
+          <div class="profile-avatar-large">
+            <i class="fa-solid fa-user-circle"></i>
+          </div>
+          <div class="profile-info">
+            <h1>Buynaa</h1>
+            <p class="profile-email">beyh619@gmail.com</p>
+            <div class="profile-stats">
+              <div class="stat">
+                <span class="stat-number">3</span>
+                <span class="stat-label">Төслүүд</span>
+              </div>
+              <div class="stat">
+                <span class="stat-number">7</span>
+                <span class="stat-label">Түвшнүүд</span>
+              </div>
+              <div class="stat">
+                <span class="stat-number">0</span>
+                <span class="stat-label">Амжилтууд</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="profile-content">
+          <div class="profile-section">
+            <h2><i class="fa-solid fa-chart-line"></i> Progress Overview</h2>
+            <div class="progress-grid">
+              <div class="progress-item">
+                <div class="progress-header">
+                  <span>HTML Эзэмшил</span>
+                  <span>20%</span>
+                </div>
+                <div class="progress-bar">
+                  <div class="progress-fill" style="width: 20%"></div>
+                </div>
+              </div>
+
+              <div class="progress-item">
+                <div class="progress-header">
+                  <span>CSS Чадвар</span>
+                  <span>25%</span>
+                </div>
+                <div class="progress-bar">
+                  <div class="progress-fill" style="width: 25%"></div>
+                </div>
+              </div>
+
+              <div class="progress-item">
+                <div class="progress-header">
+                  <span>JavaScript</span>
+                  <span>12%</span>
+                </div>
+                <div class="progress-bar">
+                  <div class="progress-fill" style="width: 12%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="profile-section">
+            <h2><i class="fa-solid fa-folder"></i> Сүүлийн Төслүүд</h2>
+            <div class="projects-grid">
+              <div class="project-card">
+                <div class="project-icon">
+                  <i class="fa-solid fa-globe"></i>
+                </div>
+                <div class="project-info">
+                  <h3>Миний Эхний Вэбсайт</h3>
+                  <p>Энгийн Портфель вэбсайт</p>
+                  <div class="project-tags">
+                    <span class="tag">HTML</span>
+                    <span class="tag">CSS</span>
+                  </div>
+                </div>
+                <div class="project-actions">
+                  <button class="btn-small">View</button>
+                  <button class="btn-small">Edit</button>
+                </div>
+              </div>
+
+              <div class="project-card">
+                <div class="project-icon">
+                  <i class="fa-solid fa-calculator"></i>
+                </div>
+                <div class="project-info">
+                  <h3>Calculator App</h3>
+                  <p>JavaScript calculator</p>
+                  <div class="project-tags">
+                    <span class="tag">HTML</span>
+                    <span class="tag">CSS</span>
+                    <span class="tag">JS</span>
+                  </div>
+                </div>
+                <div class="project-actions">
+                  <button class="btn-small">View</button>
+                  <button class="btn-small">Edit</button>
+                </div>
+              </div>
+
+              <div class="project-card">
+                <div class="project-icon">
+                  <i class="fa-solid fa-gamepad"></i>
+                </div>
+                <div class="project-info">
+                  <h3>Энгийн Тоглоом</h3>
+                  <p>Ундэсэн JavaScript тоглоом</p>
+                  <div class="project-tags">
+                    <span class="tag">HTML</span>
+                    <span class="tag">CSS</span>
+                    <span class="tag">JS</span>
+                  </div>
+                </div>
+                <div class="project-actions">
+                  <button class="btn-small">View</button>
+                  <button class="btn-small">Edit</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="profile-section">
+            <h2><i class="fa-solid fa-cog"></i> Account Settings</h2>
+            <div class="settings-grid">
+              <div class="setting-item">
+                <div class="setting-info">
+                  <h3>Нууц үгийг Солих</h3>
+                  <p>Дансны нууц үгийг шинэчлүүлэх</p>
+                </div>
+                <button class="btn-secondary">Солих</button>
+              </div>
+
+              <div class="setting-item">
+                <div class="setting-info">
+                  <h3>Email Preferences</h3>
+                  <p>Manage notification settings</p>
+                </div>
+                <button class="btn-secondary">Manage</button>
+              </div>
+
+              <div class="setting-item">
+                <div class="setting-info">
+                  <h3>Export Data</h3>
+                  <p>Download your projects and data</p>
+                </div>
+                <button class="btn-secondary">Export</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <div id="sidebar-overlay" class="sidebar-overlay-hidden"></div>
+
+    <script src="profile.js"></script>
+  </body>
+</html>

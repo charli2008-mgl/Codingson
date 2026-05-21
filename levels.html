@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="mn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Түвшнүүдийг сонгох - Coding Son</title>
+    <link rel="stylesheet" href="levels.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  </head>
+  <body>
+    <div class="bg-shape shape-1"></div>
+    <div class="bg-shape shape-2"></div>
+
+    <a href="main.html" class="back-btn" title="Буцах">
+      <i class="fa-solid fa-arrow-left"></i>
+    </a>
+
+    <div class="app-container">
+      <header>
+        <h1>Хичээлийн Түвшин</h1>
+        <p>Өөрийн суралцах шатыг сонгоно уу</p>
+      </header>
+
+      <div class="tabs-container">
+        <button class="tab-btn active" data-category="beginner">
+          <i class="fa-brands fa-html5"></i> HTML
+        </button>
+        <button class="tab-btn" data-category="advanced">
+          <i class="fa-brands fa-css3-alt"></i> CSS
+        </button>
+        <button class="tab-btn" data-category="master">
+          <i class="fa-brands fa-js"></i> JS
+        </button>
+      </div>
+
+      <div class="levels-grid" id="levels-grid"></div>
+    </div>
+
+    <script src="levels.js"></script>
+  </body>
+</html>

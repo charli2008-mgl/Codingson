@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="mn">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Ахисан шатны HTML/CSS хичээл</title>
+    <link rel="stylesheet" href="advanced.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  </head>
+
+  <body>
+    <div class="app">
+      <div class="instructions">
+        <div class="header">
+          <h2 id="level-title">Түвшин 1</h2>
+        </div>
+
+        <div class="lesson" id="lesson-text"></div>
+
+        <div class="task">
+          <hr />
+          <strong>Даалгавар:</strong>
+          <p id="task-text"></p>
+        </div>
+
+        <p id="feedback" class="feedback"></p>
+
+        <div class="stars">Оноо: 🏆 <span id="stars">0</span></div>
+      </div>
+
+      <div class="editor">
+        <div class="tabs">
+          <button class="tab active" onclick="showTab('html')">
+            index.html
+          </button>
+          <button class="tab" onclick="showTab('css')">style.css</button>
+        </div>
+
+        <textarea id="htmlCode" placeholder=""></textarea>
+        <textarea
+          id="cssCode"
+          class="hidden"
+          placeholder="/* CSS энд бичнэ */"></textarea>
+
+        <button class="run-btn" onclick="runCode()">Код ажиллуулах ▶</button>
+      </div>
+
+      <div class="preview">
+        <h3>Хөтөч дээр харах</h3>
+        <iframe id="output"></iframe>
+      </div>
+    </div>
+
+    <!-- Back to Editor Button -->
+    <a href="main.html" class="back-to-editor-btn" title="Back to Main Editor">
+      <i class="fa-solid fa-code"></i>
+      Back to Editor
+    </a>
+
+    <script src="advanced.js"></script>
+  </body>
+</html>

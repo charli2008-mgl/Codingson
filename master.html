@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="mn">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Анхан шатны JavaScript хичээл</title>
+    <link rel="stylesheet" href="master.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  </head>
+
+  <body>
+    <div class="app">
+      <div class="instructions">
+        <div class="header">
+          <div>
+            <h2 id="level-title">Түвшин 1</h2>
+            <p class="level-meta" id="level-indicator">Түвшин 1 / 10</p>
+          </div>
+          <div class="stars">Оноо: 🏆 <span id="stars">0</span></div>
+        </div>
+
+        <div class="lesson" id="lesson-text"></div>
+
+        <div class="task">
+          <hr />
+          <strong>Даалгавар:</strong>
+          <p id="task-text"></p>
+        </div>
+
+        <p id="feedback" class="feedback"></p>
+      </div>
+
+      <div class="editor">
+        <div class="tabs">
+          <button class="tab active">
+            <i class="fa-brands fa-js" style="color: #f1c40f"></i> main.js
+          </button>
+        </div>
+
+        <textarea
+          id="jsCode"
+          placeholder="// JavaScript кодоо энд бичнэ үү"></textarea>
+
+        <button class="run-btn" onclick="runCode()">Код ажиллуулах ▶</button>
+      </div>
+
+      <div class="preview">
+        <h3>Консол (Console Output)</h3>
+        <pre id="output"></pre>
+      </div>
+    </div>
+
+    <a href="main.html" class="back-to-editor-btn" title="Back to Main Editor">
+      <i class="fa-solid fa-code"></i>
+      Буцах
+    </a>
+
+    <script src="master.js"></script>
+  </body>
+</html>
